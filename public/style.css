@@ -1,0 +1,36 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, Arial, sans-serif; background: #f6f6f7; color: #222; }
+header { background: #c62828; color: #fff; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; }
+header h1 { margin: 0; font-size: 22px; }
+#nav { display: flex; gap: 12px; align-items: center; }
+main { max-width: 960px; margin: 24px auto; padding: 0 16px; }
+.card { background: #fff; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+.narrow { max-width: 440px; margin: 40px auto; }
+h2 { margin-top: 0; font-size: 18px; }
+label { display: block; margin: 12px 0 4px; font-size: 14px; font-weight: 600; }
+input, select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 15px; }
+input[type=checkbox] { width: auto; }
+button { background: #c62828; color: #fff; border: 0; padding: 12px 20px; border-radius: 8px; font-size: 15px; cursor: pointer; margin-top: 14px; }
+button:hover { background: #a71f1f; }
+button.grey { background: #777; }
+button.small { padding: 6px 12px; font-size: 13px; margin-top: 0; }
+button.link { background: none; color: #fff; text-decoration: underline; margin: 0; padding: 0; }
+.row { display: flex; gap: 12px; flex-wrap: wrap; }
+.row > div { flex: 1; min-width: 140px; }
+.stats { display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+.stat { flex: 1; min-width: 140px; background: #fff; border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+.stat b { display: block; font-size: 28px; color: #c62828; }
+.item { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #eee; }
+.item:last-child { border-bottom: 0; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid #eee; }
+.muted { color: #777; }
+.ok { background: #e6f4ea; color: #1b5e20; padding: 12px; border-radius: 8px; font-weight: 600; }
+.wait { background: #fff4e5; color: #8a5300; padding: 12px; border-radius: 8px; font-weight: 600; }
+.badge { padding: 3px 10px; border-radius: 12px; font-size: 12px; background: #eee; }
+.badge.Urgent, .badge.Notified, .badge.Pending { background: #fff4e5; color: #8a5300; }
+.badge.Critical, .badge.Declined, .badge.Cancelled { background: #fdecea; color: #b71c1c; }
+.badge.Accepted, .badge.Matched, .badge.Fulfilled, .badge.Donated { background: #e6f4ea; color: #1b5e20; }
+#toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #333; color: #fff; padding: 12px 20px; border-radius: 8px; display: none; z-index: 10; }
+#toast.bad { background: #b71c1c; }
+a { color: #c62828; }

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LifeLink - Give blood. Save lives.</title>
+  <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+
+  <nav class="top">
+    <a class="logo" href="/">🩸 LifeLink</a>
+    <div class="links">
+      <a href="#how">How it works</a>
+      <a href="#who">Who it's for</a>
+      <a href="#groups">Blood groups</a>
+      <a class="btn small" id="navBtn" href="app.html">Login</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Give blood. Save lives.</h1>
+    <p>LifeLink connects hospitals and blood banks with compatible, eligible donors, quickly and simply.</p>
+    <div class="cta">
+      <a class="btn" href="app.html#register-donor">Become a donor</a>
+      <a class="btn outline" href="app.html#register-hospital">Hospital / Blood bank</a>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div><b id="sDonors">-</b><span>Registered donors</span></div>
+    <div><b id="sHospitals">-</b><span>Hospitals and blood banks</span></div>
+    <div><b id="sDonations">-</b><span>Donations recorded</span></div>
+    <div><b id="sOpen">-</b><span>Open blood requests</span></div>
+  </section>
+
+  <section class="block bridge">
+    <h2>LifeLink sits between donors and hospitals</h2>
+    <div class="flow">
+      <div class="side">
+        <h3>Donors</h3>
+        <p>Register, get alerts, accept or decline</p>
+      </div>
+      <div class="arrow">&harr;</div>
+      <div class="middle">
+        <h3>🩸 LifeLink</h3>
+        <p>Matches blood groups, checks eligibility, sends notifications, protects privacy</p>
+      </div>
+      <div class="arrow">&harr;</div>
+      <div class="side">
+        <h3>Hospitals and blood banks</h3>
+        <p>Post requests, see who accepted, record donations</p>
+      </div>
+    </div>
+    <p class="note">Hospitals never get a donor's phone number until the donor says yes.</p>
+  </section>
+
+  <section id="how" class="block">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step"><span>1</span><h3>Hospital posts a request</h3><p>Choose the blood group, number of units and urgency.</p></div>
+      <div class="step"><span>2</span><h3>We find compatible donors</h3><p>Only available donors who are medically eligible are notified.</p></div>
+      <div class="step"><span>3</span><h3>Donor accepts and donates</h3><p>The hospital sees who accepted, and the donation is recorded.</p></div>
+    </div>
+  </section>
+
+  <section id="who" class="block grey">
+    <h2>Who it's for</h2>
+    <div class="two">
+      <div class="panel">
+        <h3>Donors</h3>
+        <ul>
+          <li>Register in one minute</li>
+          <li>Get alerts only when your blood group is needed</li>
+          <li>See your donation history and next eligible date</li>
+        </ul>
+        <a class="btn" href="app.html#register-donor">Register as a donor</a>
+      </div>
+      <div class="panel">
+        <h3>Hospitals and blood banks</h3>
+        <ul>
+          <li>Send a blood request in seconds</li>
+          <li>Automatic matching with compatible donors</li>
+          <li>Manage blood stock and donation records</li>
+        </ul>
+        <a class="btn" href="app.html#register-hospital">Register your facility</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="groups" class="block">
+    <h2>Who can give to whom</h2>
+    <table>
+      <tr><th>Patient needs</th><th>Compatible donors</th></tr>
+      <tr><td>O-</td><td>O-</td></tr>
+      <tr><td>O+</td><td>O+, O-</td></tr>
+      <tr><td>A-</td><td>A-, O-</td></tr>
+      <tr><td>A+</td><td>A+, A-, O+, O-</td></tr>
+      <tr><td>B-</td><td>B-, O-</td></tr>
+      <tr><td>B+</td><td>B+, B-, O+, O-</td></tr>
+      <tr><td>AB-</td><td>AB-, A-, B-, O-</td></tr>
+      <tr><td>AB+</td><td>All blood groups</td></tr>
+    </table>
+  </section>
+
+  <section class="final">
+    <h2>One donation can save up to three lives.</h2>
+    <a class="btn" href="app.html#register-donor">Join LifeLink today</a>
+  </section>
+
+  <footer>
+    <p>LifeLink - Blood Donation Management and Matching Platform</p>
+    <p>Software Modeling Design project by Dushime Aline Denise (ID 27812)</p>
+  </footer>
+
+  <script>
+    // if already logged in, the button goes straight to the dashboard
+    if (localStorage.token) {
+      document.getElementById('navBtn').textContent = 'My dashboard';
+    }
+
+    // live numbers from the database
+    fetch('/api/public/stats')
+      .then(r => r.json())
+      .then(s => {
+        document.getElementById('sDonors').textContent = s.donors;
+        document.getElementById('sHospitals').textContent = s.hospitals;
+        document.getElementById('sDonations').textContent = s.donations;
+        document.getElementById('sOpen').textContent = s.open_requests;
+      })
+      .catch(() => {});
+  </script>
+</body>
+</html>
